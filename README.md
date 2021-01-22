@@ -87,10 +87,10 @@ Go to [http://localhost:8000/redoc/](http://localhost:8000/redoc/)
 Go to [http://localhost:3000/](http://localhost:3000/)
 
 
-### Misc backend tools (not needed for challenge)
+### Misc backend tools 
 
-To support your development certain tools are avaiable via the Django
-management commands.  NOTE: These should not be necessary for this challenge.
+To support development certain tools are avaiable via the Django
+management commands.
 
 Run manage commands: e.g.
 
