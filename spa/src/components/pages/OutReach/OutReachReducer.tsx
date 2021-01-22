@@ -1,7 +1,6 @@
 import React from "react";
-import { EditorState, RawDraftContentState } from "draft-js";
+import { EditorState } from "draft-js";
 import {
-  ListOutreachResponse,
   Outreach,
   PartialUpdateOutreachResponse,
 } from "../../../swaggerapi/models";
@@ -10,10 +9,8 @@ import {
   stringToEditorState,
 } from "../../../util/HelperFunctions/TextEditorHelpers";
 import { HasDraftReturnType } from "../OutReachPageHelperFunctions/HelperFunctions";
-// import { Client, Job } from "../../../util/gen/api/dist";
 
 export type OutReachEditorReducerState = {
-  //   job?: Job;
   editorState: EditorState;
   isDirty: boolean;
   isModalOpen: boolean;
@@ -51,7 +48,6 @@ export type OutReachEditorActions =
         outreaches: Outreach[];
       };
     }
-  /*added this to update state of outrach after put/post */
   | {
       type: "EDITOR_PUT_POST_200";
       payload: PartialUpdateOutreachResponse;
@@ -63,9 +59,7 @@ export default function reducer(
 ): OutReachEditorReducerState {
   switch (action.type) {
     case "EDITOR_LOADED_200":
-      /* TODO: Figure our serialization of text editor State*/
       const isModallOpen = action.payload.hasDraft.finalIndex !== undefined;
-      debugger;
 
       return {
         ...state,
@@ -81,7 +75,6 @@ export default function reducer(
       };
 
     case "EDITOR_PUT_POST_200":
-      debugger;
       /* TODO: Figure our serialization of text editor State*/
       return {
         ...state,
@@ -117,7 +110,6 @@ export default function reducer(
         isModalOpen: false,
       };
     case "USE_FINAL":
-      debugger;
       if (state.outreaches && state.hasDraft?.finalIndex !== undefined) {
         const finalOutreach = state.outreaches[state.hasDraft.finalIndex];
         return {

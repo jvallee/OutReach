@@ -10,36 +10,6 @@ const client = new DoverOnsiteCodingChallengeBackendAPI({
 });
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
-
-  const init = async () => {
-    // Fetch the state... or
-    // Create the state...
-    // setLoading(false);
-  };
-
-  useEffect(() => {
-    init();
-  }, []);
-
-  const editorReady = !loading;
-
-  // return (
-  //   <div className="App">
-  //     <Container>
-  //       <Row>
-  //         <h2>Dover Onsite Coding Challenge</h2>
-  //       </Row>
-  //       <Row>
-  //         {editorReady ? (
-  //           <>{/* editor here maybe */}</>
-  //         ) : (
-  //           <p>Loading...</p>
-  //         )}
-  //       </Row>
-  //     </Container>
-  //   </div>
-  // );
   return (
     <div>
       <Header />
