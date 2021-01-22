@@ -1,0 +1,36 @@
+version: '3'
+
+volumes:
+  local_postgres_data: {}
+  local_postgres_data_backups: {}
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./api/compose/local/django/Dockerfile
+    image: api_local_django
+    depends_on:
+      - postgres
+    volumes:
+      - ./api:/app
+      - ./spa:/frontend
+    env_file:
+      - ./api/.envs/.local/.django
+      - ./api/.envs/.local/.postgres
+    ports:
+      - "8000:8000"
+    command: /start
+    environment:
+      - DJANGO_SECRET_KEY=supersecretkey
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./api/compose/production/postgres/Dockerfile
+    image: api_production_postgres
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data
+      - local_postgres_data_backups:/backups
+    env_file:
+      - ./api/.envs/.local/.postgres
