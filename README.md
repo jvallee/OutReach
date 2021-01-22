@@ -1,5 +1,3 @@
-# Dover Frontend Onsite Coding Challenge
-
 ## Overview
 
 An application for modifying an email template that can edited, saved, and published.
